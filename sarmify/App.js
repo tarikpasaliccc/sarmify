@@ -1,15 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import MemoryGame from './memory/MemoryGame'; 
+import CatcherGame from './sarmaCatcher/catcherGame'; 
 import Quiz from './components/Quiz';
 
-export default function App() {
+
+const App = () => {
   return (
     <View style={styles.container}>
       <Quiz />
+      <MemoryGame /> 
+      <CatcherGame />
       <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -20,3 +25,5 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+export default App;
