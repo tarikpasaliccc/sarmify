@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   icon: {
-    height: 30,
-    width: 30,
+    height: 40,
+    width: 40,
     position: 'absolute',
-    top: 30,
+    top: 20,
   },
   boxText: {
     fontSize: 16,

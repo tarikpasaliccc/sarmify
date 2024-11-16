@@ -11,7 +11,7 @@ const Brick = ({ position, width, height }) => {
 const styles = StyleSheet.create({
   brick: {
     position: 'absolute',
-    backgroundColor: 'orange', // Customize the color as you like
+    backgroundColor: '#f7e79e', // Customize the color as you like
     borderWidth: 1,
   },
 });

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     bottom: 30, // adjust this based on how close you want it to the bottom of the screen
     width: 100, // width of the paddle
     height: 20, // height of the paddle
-    backgroundColor: 'blue', // you can customize the color later
+    backgroundColor: 'black', // you can customize the color later
   },
 });
 

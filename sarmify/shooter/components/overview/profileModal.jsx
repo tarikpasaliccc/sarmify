@@ -16,8 +16,6 @@ export default function ProfileModal({ visible, onClose }) {
           <Text style={styles.profileText}>Frau Pilgitsch</Text>
           <Text style={styles.profileText}>pilgitsch@example.com</Text>
           <Text style={styles.profileText}>21.04.2003</Text>
-          <Text style={styles.profileText}>Illness</Text>
-          <Text style={styles.profileText}>Medicines List</Text>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <Text style={styles.closeButtonText}>Close</Text>
           </TouchableOpacity>

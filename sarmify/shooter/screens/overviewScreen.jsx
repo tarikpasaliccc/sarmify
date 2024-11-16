@@ -16,31 +16,31 @@ export default function OverviewScreen() {
         <Header onProfilePress={() => setProfileVisible(true)} />
       </SafeAreaView>
 
-      <Text style={styles.title}>PANDO</Text>
+      <Text style={styles.title}>SARMIFY</Text>
 
       <View style={styles.gridContainer}>
         <GridButton
-          image={require('../../assets/sarma.png')}
-          label="Weekly-Planner / To-Do"
-          onPress={() => navigation.navigate('Plan')}
+          image={require('../../assets/quiz.png')}
+          label="Quiz"
+          onPress={() => navigation.navigate('Quiz')}
           style={styles.box1}
         />
         <GridButton
           image={require('../../assets/sarma.png')}
-          label="Medics - Tracker"
-          onPress={() => navigation.navigate('Medics')}
+          label="Sarma Catcher"
+          onPress={() => navigation.navigate('CatcherGame')}
           style={styles.box2}
         />
         <GridButton
           image={require('../../assets/sarma.png')}
-          label="Therapy / Game"
-          onPress={() => navigation.navigate('Therapy')}
+          label="Memory Game"
+          onPress={() => navigation.navigate('MemoryGame')}
           style={styles.box3}
         />
         <GridButton
           image={require('../../assets/sarma.png')}
-          label="Progress"
-          onPress={() => navigation.navigate('Progress')}
+          label="Shooter Game"
+          onPress={() => navigation.navigate('ShooterGame')}
           style={styles.box4}
         />
       </View>

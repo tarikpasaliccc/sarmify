@@ -12,7 +12,7 @@ const BRICK_HEIGHT = 20;
 const BRICK_ROWS = 20;
 const BRICK_COLUMNS = Math.floor(width / BRICK_WIDTH);
 
-const GameScreen = () => {
+const ShooterGame = () => {
   const [paddlePosition, setPaddlePosition] = useState({ x: width / 2 - 50 });
   const [ballPosition, setBallPosition] = useState({ x: width / 2 - 10, y: height / 2 - 10 });
   const [ballVelocity, setBallVelocity] = useState({ x: 0, y: 0 });
@@ -184,7 +184,7 @@ const GameScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: '#DFFFD6',
   },
   overlay: {
     ...StyleSheet.absoluteFill,
@@ -209,4 +209,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GameScreen;
+export default ShooterGame;
