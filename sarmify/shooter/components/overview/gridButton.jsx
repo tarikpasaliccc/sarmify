@@ -1,10 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, Image, Text, StyleSheet } from 'react-native';
 
-export default function GridButton({ image, label, onPress, style }) {
+export default function GridButton({ image, label, onPress, style, imageWidth, imageHeight }) {
   return (
     <TouchableOpacity style={[styles.box, style]} onPress={onPress}>
-      <Image source={image} style={styles.icon} />
+      <Image source={image} style={[styles.icon, {height: imageHeight, width: imageWidth}]} />
       <Text style={styles.boxText}>{label}</Text>
     </TouchableOpacity>
   );
@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   icon: {
-    height: 40,
-    width: 40,
     position: 'absolute',
     top: 20,
   },

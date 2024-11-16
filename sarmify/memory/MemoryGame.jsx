@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 100, // Abstand nach oben
   },
   card: {
     width: 60,
@@ -116,9 +117,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   resetButtonText: {
-    color: '#www',
+    color: '#000',
     fontSize: 16,
   },
 });
+
 
 export default MemoryGame;

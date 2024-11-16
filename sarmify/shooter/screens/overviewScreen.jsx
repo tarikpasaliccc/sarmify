@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../components/overview/header';
 import GridButton from '../components/overview/gridButton';
-import ProfileModal from '../components/overview/profileModal';
 
 export default function OverviewScreen() {
   const navigation = useNavigation();
@@ -24,28 +23,35 @@ export default function OverviewScreen() {
           label="Quiz"
           onPress={() => navigation.navigate('Quiz')}
           style={styles.box1}
+          imageHeight={50}
+          imageWidth={40}
         />
         <GridButton
-          image={require('../../assets/sarma.png')}
+          image={require('../../assets/teller.png')}
           label="Sarma Catcher"
           onPress={() => navigation.navigate('CatcherGame')}
           style={styles.box2}
+          imageHeight={70}
+          imageWidth={90}
         />
         <GridButton
-          image={require('../../assets/sarma.png')}
+          image={require('../../assets/memory.png')}
           label="Memory Game"
           onPress={() => navigation.navigate('MemoryGame')}
           style={styles.box3}
+          imageHeight={50}
+          imageWidth={70}
         />
         <GridButton
           image={require('../../assets/sarma.png')}
           label="Shooter Game"
           onPress={() => navigation.navigate('ShooterGame')}
           style={styles.box4}
+          imageHeight={65}
+          imageWidth={50}
         />
       </View>
 
-      <ProfileModal visible={isProfileVisible} onClose={() => setProfileVisible(false)} />
     </View>
   );
 }
