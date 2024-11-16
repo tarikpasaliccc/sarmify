@@ -11,7 +11,7 @@ export default function ProfileModal({ visible, onClose }) {
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
-          <Image source={require('../../assets/pandaProfil.png')} style={styles.profileImageLarge} />
+          <Image source={require('../../../assets/sarma.png')} style={styles.profileImageLarge} />
           <Text style={styles.profileTitle}>Profile</Text>
           <Text style={styles.profileText}>Frau Pilgitsch</Text>
           <Text style={styles.profileText}>pilgitsch@example.com</Text>

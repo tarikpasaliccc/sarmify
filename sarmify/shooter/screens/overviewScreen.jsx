@@ -20,25 +20,25 @@ export default function OverviewScreen() {
 
       <View style={styles.gridContainer}>
         <GridButton
-          image={require('../assets/todo.webp')}
+          image={require('../../assets/sarma.png')}
           label="Weekly-Planner / To-Do"
           onPress={() => navigation.navigate('Plan')}
           style={styles.box1}
         />
         <GridButton
-          image={require('../assets/medication.webp')}
+          image={require('../../assets/sarma.png')}
           label="Medics - Tracker"
           onPress={() => navigation.navigate('Medics')}
           style={styles.box2}
         />
         <GridButton
-          image={require('../assets/startButton.webp')}
+          image={require('../../assets/sarma.png')}
           label="Therapy / Game"
           onPress={() => navigation.navigate('Therapy')}
           style={styles.box3}
         />
         <GridButton
-          image={require('../assets/progress.webp')}
+          image={require('../../assets/sarma.png')}
           label="Progress"
           onPress={() => navigation.navigate('Progress')}
           style={styles.box4}
