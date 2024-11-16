@@ -1,11 +1,13 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-import MemoryGame from './memory/MemoryGame'; // Importiere die MemoryGame-Komponente
+import MemoryGame from './memory/MemoryGame'; 
+import CatcherGame from './sarmaCatcher/catcherGame'; 
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <MemoryGame /> {/* Rendern des Memory-Spiels */}
+      <MemoryGame /> 
+      <CatcherGame />
     </SafeAreaView>
   );
 };
