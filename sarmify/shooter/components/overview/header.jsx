@@ -15,7 +15,7 @@ export default function Header({ onProfilePress }) {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#dffcbc',
+    backgroundColor: '#4c6351',
   },
   header: {
     flexDirection: 'row',

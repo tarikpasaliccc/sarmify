@@ -1,57 +1,67 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../components/overview/header';
-import GridButton from '../components/overview/gridButton';
 
 export default function OverviewScreen() {
   const navigation = useNavigation();
-  const [isProfileVisible, setProfileVisible] = useState(false);
+  const [selectedGameIndex, setSelectedGameIndex] = useState(null);
+  const [isSelecting, setIsSelecting] = useState(false);
 
+  const games = [
+    { name: 'Quiz', screen: 'Quiz' },
+    { name: 'Sarma Catcher', screen: 'CatcherGame' },
+    { name: 'Memory Game', screen: 'MemoryGame' },
+    { name: 'Shooter Game', screen: 'ShooterGame' },
+  ];
+
+  const selectRandomGame = () => {
+    setIsSelecting(true);
+    setSelectedGameIndex(null); 
+
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      setSelectedGameIndex(currentIndex);
+      currentIndex = (currentIndex + 1) % games.length;
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      const randomIndex = Math.floor(Math.random() * games.length);
+      setSelectedGameIndex(randomIndex);
+      setIsSelecting(false);
+    }, 3000);
+  };
 
   return (
     <View style={styles.container}>
-      <SafeAreaView>
-        <Header onProfilePress={() => setProfileVisible(true)} />
-      </SafeAreaView>
 
       <Text style={styles.title}>SARMIFY</Text>
 
-      <View style={styles.gridContainer}>
-        <GridButton
-          image={require('../../assets/quiz.png')}
-          label="Quiz"
-          onPress={() => navigation.navigate('Quiz')}
-          style={styles.box1}
-          imageHeight={50}
-          imageWidth={40}
-        />
-        <GridButton
-          image={require('../../assets/teller.png')}
-          label="Sarma Catcher"
-          onPress={() => navigation.navigate('CatcherGame')}
-          style={styles.box2}
-          imageHeight={70}
-          imageWidth={90}
-        />
-        <GridButton
-          image={require('../../assets/memory.png')}
-          label="Memory Game"
-          onPress={() => navigation.navigate('MemoryGame')}
-          style={styles.box3}
-          imageHeight={50}
-          imageWidth={70}
-        />
-        <GridButton
-          image={require('../../assets/sarma.png')}
-          label="Shooter Game"
-          onPress={() => navigation.navigate('ShooterGame')}
-          style={styles.box4}
-          imageHeight={65}
-          imageWidth={50}
-        />
+      <View style={styles.mainButtonContainer}>
+        <TouchableOpacity
+          style={[styles.mainButton, isSelecting && styles.buttonDisabled]}
+          onPress={selectRandomGame}
+          disabled={isSelecting}
+        >
+          <Text style={styles.buttonText}>Select a Random Game</Text>
+        </TouchableOpacity>
       </View>
 
+      <View style={styles.gameList}>
+        {games.map((game, index) => (
+          <TouchableOpacity
+            key={index}
+            style={[
+              styles.gameBox,
+              selectedGameIndex === index && styles.highlightedBox,
+            ]}
+            onPress={() => !isSelecting && navigation.navigate(game.screen)}
+          >
+            <Text style={styles.gameText}>{game.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 }
@@ -59,7 +69,7 @@ export default function OverviewScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#dffcbc',
+    backgroundColor: '#4c6351',
     padding: 20,
   },
   title: {
@@ -67,25 +77,42 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 20,
+    marginTop: 150,
   },
-  gridContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',  
+  mainButtonContainer: {
+    marginTop: 50,
     alignItems: 'center',
-    marginTop: 100,
   },
-  box1: {
-    backgroundColor: '#f6fcbc',
+  mainButton: {
+    backgroundColor: '#b5d289',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
   },
-  box2: {
-    backgroundColor: '#c0e8f6',
+  buttonDisabled: {
+    backgroundColor: '#a5d6a7', 
   },
-  box3: {
-    backgroundColor: '#f7d9c4',
+  buttonText: {
+    color: '#fff', 
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  box4: {
-    backgroundColor: '#f9cf9c',
+  gameList: {
+    marginTop: 40,
+  },
+  gameBox: {
+    backgroundColor: '#babf9f',
+    padding: 20,
+    borderRadius: 10,
+    marginVertical: 5,
+    alignItems: 'center',
+  },
+  highlightedBox: {
+    backgroundColor: '#DAF7A6', 
+  },
+  gameText: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
-
